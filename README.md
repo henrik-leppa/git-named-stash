@@ -1,4 +1,4 @@
-Git Named Stash 1.0.0
+Git Named Stash 1.1.0
 =====================
 [
   Encoding: UTF-8;
@@ -41,6 +41,10 @@ git-named-stash pop <name-of-stash> [<git-stash-arguments>...]
 or:
 ```sh
 git-named-stash apply <name-of-stash> [<git-stash-arguments>...]
+```
+or:
+```sh
+git-named-stash push <name-of-stash> [<git-stash-arguments>...]
 ```
 or:
 ```sh

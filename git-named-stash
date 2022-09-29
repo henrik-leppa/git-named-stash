@@ -3,7 +3,7 @@
 set -e
 
 version_message="\
-Git Named Stash v1.0.0
+Git Named Stash v1.1.0
 
 Copyright © 2022 Henrik Franciscus Leppä
 
@@ -18,6 +18,7 @@ Usage: git-named-stash show <name-of-stash> [<git-stash-arguments>...]
    or: git-named-stash drop <name-of-stash> [<git-stash-arguments>...]
    or: git-named-stash pop <name-of-stash> [<git-stash-arguments>...]
    or: git-named-stash apply <name-of-stash> [<git-stash-arguments>...]
+   or: git-named-stash push <name-of-stash> [<git-stash-arguments>...]
    or: git-named-stash (--help | -H | -h | -?)
    or: git-named-stash (--version | -V | -v)
 
@@ -46,7 +47,7 @@ if [ $# -ne 0 ]; then
   case $1 in
     (--version | -V | -v) printf '%s\n' "$version_message" ; exit ;;
     (--help | -H | -h | -\?) printf '%s\n' "$help_message" ; exit ;;
-    (show | drop | pop | apply) command="$1"; shift ;;
+    (show | drop | pop | apply | push) command="$1"; shift ;;
     (*)
       printf '%s\n\n' "Invalid argument: \`$1\`" >& 2
       printf '%s\n\n' "Use \`--help\` option to see all valid arguments." >& 2
@@ -68,6 +69,12 @@ fi
 
 my_stash_name="$1"
 shift
+
+if [ "$command" = push ]; then
+  printf '%s\n' "> git stash push --message $my_stash_name $@"
+  git stash push --message "$my_stash_name" "$@"
+  exit
+fi
 
 stash_line="$(git stash list | grep '^[^:]*:[^:]*: '"$my_stash_name"'$' | head -n 1)"
 
