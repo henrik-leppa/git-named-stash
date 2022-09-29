@@ -17,6 +17,14 @@ The format is based on [Keep a Changelog][] and this project adheres to
 [(See this file in `dev` branch.)][Development Changelog]
 
 
+[1.1.0][] – 2022-09-29
+----------------------
+
+### Added
+
+- Command: `push`
+
+
 [1.0.0][] – 2022-09-29
 ----------------------
 
@@ -33,5 +41,7 @@ The format is based on [Keep a Changelog][] and this project adheres to
   https://github.com/henrik-leppa/git-named-stash/blob/dev/CHANGELOG.md
 [Unreleased]:
   https://github.com/henrik-leppa/git-named-stash/compare/main...dev
+[1.1.0]:
+  https://github.com/henrik-leppa/git-named-stash/compare/1.0.0...1.1.0
 [1.0.0]:
   https://github.com/henrik-leppa/git-named-stash/compare/initial-commit...1.0.0
